@@ -1,0 +1,12 @@
+order_id,order_date,customer_id,order_status,source_system
+O001,2026-02-01,C001,Completed,web
+O002,2026-02-02,C002,Completed,store
+O003,2026-02-03,C003,Completed,web
+O004,2026-02-04,C999,Completed,web
+O005,2026-02-05,C004,Cancelled,marketplace
+O006,2026-02-06,C005,Completed,store
+O007,2026-02-07,C006,Completed,web
+O008,2026-02-08,C007,Completed,marketplace
+O009,2026-02-09,C008,Completed,web
+O009,2026-02-09,C008,Completed,web
+O010,2026-02-31,C001,Completed,web
