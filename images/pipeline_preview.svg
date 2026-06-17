@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#f6f8fb"/>
+  <rect x="40" y="32" width="1120" height="72" rx="16" fill="#111827"/>
+  <text x="70" y="78" font-family="Arial" font-size="28" font-weight="700" fill="#ffffff">Data Pipeline Quality Checks</text>
+  <text x="900" y="78" font-family="Arial" font-size="18" fill="#d1d5db">Portfolio Case</text>
+
+  <g font-family="Arial">
+    <rect x="70" y="165" width="210" height="110" rx="16" fill="#ffffff" stroke="#dbe3ef"/>
+    <text x="105" y="207" font-size="21" font-weight="700" fill="#111827">Raw</text>
+    <text x="105" y="238" font-size="15" fill="#6b7280">CSV source files</text>
+
+    <rect x="355" y="165" width="210" height="110" rx="16" fill="#ffffff" stroke="#dbe3ef"/>
+    <text x="390" y="207" font-size="21" font-weight="700" fill="#111827">Staging</text>
+    <text x="390" y="238" font-size="15" fill="#6b7280">Typed and cleaned fields</text>
+
+    <rect x="640" y="165" width="210" height="110" rx="16" fill="#ffffff" stroke="#dbe3ef"/>
+    <text x="675" y="207" font-size="21" font-weight="700" fill="#111827">Quality</text>
+    <text x="675" y="238" font-size="15" fill="#6b7280">Rules and issue flags</text>
+
+    <rect x="925" y="165" width="210" height="110" rx="16" fill="#ffffff" stroke="#dbe3ef"/>
+    <text x="960" y="207" font-size="21" font-weight="700" fill="#111827">Marts</text>
+    <text x="960" y="238" font-size="15" fill="#6b7280">BI-ready outputs</text>
+
+    <line x1="285" y1="220" x2="350" y2="220" stroke="#6b7280" stroke-width="4"/>
+    <line x1="570" y1="220" x2="635" y2="220" stroke="#6b7280" stroke-width="4"/>
+    <line x1="855" y1="220" x2="920" y2="220" stroke="#6b7280" stroke-width="4"/>
+  </g>
+
+  <g font-family="Arial">
+    <rect x="40" y="340" width="255" height="120" rx="16" fill="#ffffff" stroke="#dbe3ef"/>
+    <text x="70" y="380" font-size="17" fill="#6b7280">Rules checked</text>
+    <text x="70" y="430" font-size="34" font-weight="700" fill="#111827">15</text>
+
+    <rect x="325" y="340" width="255" height="120" rx="16" fill="#ffffff" stroke="#dbe3ef"/>
+    <text x="355" y="380" font-size="17" fill="#6b7280">Critical failures</text>
+    <text x="355" y="430" font-size="34" font-weight="700" fill="#111827">8</text>
+
+    <rect x="610" y="340" width="255" height="120" rx="16" fill="#ffffff" stroke="#dbe3ef"/>
+    <text x="640" y="380" font-size="17" fill="#6b7280">Ready orders</text>
+    <text x="640" y="430" font-size="34" font-weight="700" fill="#111827">62%</text>
+
+    <rect x="895" y="340" width="265" height="120" rx="16" fill="#ffffff" stroke="#dbe3ef"/>
+    <text x="925" y="380" font-size="17" fill="#6b7280">Quality score</text>
+    <text x="925" y="430" font-size="34" font-weight="700" fill="#111827">0.89</text>
+  </g>
+
+  <rect x="40" y="510" width="1120" height="145" rx="16" fill="#ffffff" stroke="#dbe3ef"/>
+  <text x="70" y="552" font-family="Arial" font-size="20" font-weight="700" fill="#111827">Analytical story</text>
+  <text x="70" y="590" font-family="Arial" font-size="16" fill="#374151">The project loads raw operational data, validates quality rules and creates trusted marts for BI reporting.</text>
+  <text x="70" y="622" font-family="Arial" font-size="16" fill="#374151">It demonstrates ingestion, SQL transformation, data contracts, issue flags and quality monitoring.</text>
+</svg>
