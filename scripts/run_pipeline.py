@@ -19,17 +19,24 @@ SQL_FILES = [
 ]
 
 
-def main():
-    con = duckdb.connect(str(DB_PATH))
-    for sql_file in SQL_FILES:
-        print(f"\n--- Running {sql_file.name} ---")
-        sql = sql_file.read_text(encoding="utf-8")
-        result = con.execute(sql)
-        try:
+def run_sql_file(connection, sql_file: Path) -> None:
+    print(f"\n--- Running {sql_file.name} ---")
+    sql = sql_file.read_text(encoding="utf-8")
+    statements = [statement.strip() for statement in sql.split(";") if statement.strip()]
+
+    for statement in statements:
+        result = connection.execute(statement)
+        if statement.lower().startswith("select"):
             print(result.fetchdf())
-        except Exception:
-            print("Script executed.")
-    con.close()
+
+
+def main() -> None:
+    con = duckdb.connect(str(DB_PATH))
+    try:
+        for sql_file in SQL_FILES:
+            run_sql_file(con, sql_file)
+    finally:
+        con.close()
     print(f"\nPipeline finished. Database created at: {DB_PATH}")
 
 
