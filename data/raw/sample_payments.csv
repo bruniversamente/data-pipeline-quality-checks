@@ -1,0 +1,11 @@
+payment_id,order_id,payment_date,payment_method,payment_status,payment_amount
+PAY001,O001,2026-02-01,Credit Card,Captured,2534.72
+PAY002,O002,2026-02-02,Pix,Captured,584.91
+PAY003,O003,2026-02-03,Credit Card,Captured,389.70
+PAY004,O004,2026-02-04,Debit Card,Captured,199.90
+PAY005,O005,2026-02-05,Credit Card,Captured,159.90
+PAY006,O006,2026-02-06,Pix,Captured,827.91
+PAY007,O007,2026-02-07,Pix,Captured,-79.90
+PAY008,O008,2026-02-08,Credit Card,Pending,1495.91
+PAY009,O009,2026-02-09,Credit Card,Captured,449.70
+PAY010,O011,2026-02-10,Pix,Captured,100.00
