@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard de Qualidade do Pipeline</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d7dce3;
+      --paper: #f7f8fa;
+      --panel: #ffffff;
+      --critical: #b42318;
+      --warn: #b54708;
+      --good: #027a48;
+      --blue: #175cd3;
+      --teal: #0f766e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+    }
+    main {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 28px 0 40px;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: end;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3vw, 2.8rem);
+      line-height: 1.03;
+      letter-spacing: 0;
+    }
+    p { margin: 0; color: var(--muted); line-height: 1.5; }
+    .status {
+      min-width: 230px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 16px;
+      border-radius: 8px;
+    }
+    .status span {
+      display: inline-flex;
+      font-weight: 800;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .status .blocked { color: #fff; background: var(--critical); }
+    .status .approved { color: #fff; background: var(--good); }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .tile, section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .tile { padding: 15px; min-height: 112px; }
+    .tile .label { color: var(--muted); font-size: .82rem; font-weight: 700; }
+    .tile .value { font-size: 2rem; font-weight: 850; margin: 10px 0 6px; }
+    .tile .note { color: var(--muted); font-size: .84rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    section { padding: 16px; overflow: hidden; }
+    h2 { margin: 0 0 12px; font-size: 1rem; letter-spacing: 0; }
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    th, td { padding: 10px 8px; border-bottom: 1px solid #edf0f3; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-size: .76rem; text-transform: uppercase; }
+    .badge { display: inline-flex; border-radius: 999px; padding: 4px 8px; font-weight: 800; font-size: .72rem; }
+    .critical { color: var(--critical); background: #fef3f2; }
+    .warning { color: var(--warn); background: #fffaeb; }
+    .bar-row { display: grid; grid-template-columns: 96px 1fr 56px; gap: 10px; align-items: center; margin: 13px 0; }
+    .bar-label, .bar-value, .revenue-row span { color: var(--muted); font-size: .86rem; }
+    .bar-track { height: 12px; border-radius: 999px; background: #e7eaee; overflow: hidden; }
+    .bar-track span { display: block; height: 100%; background: var(--teal); }
+    .revenue-row { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid #edf0f3; }
+    .footnote { margin-top: 14px; color: var(--muted); font-size: .78rem; }
+    @media (max-width: 900px) {
+      header, .grid { grid-template-columns: 1fr; }
+      .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      main { width: min(100vw - 20px, 1180px); padding-top: 16px; }
+      .kpis { grid-template-columns: 1fr; }
+      section { overflow-x: auto; }
+      table { min-width: 720px; }
+      .bar-row { grid-template-columns: 82px 1fr 52px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>Data Pipeline Quality Dashboard</h1>
+      <p>Pipeline de pedidos e pagamentos com gates de validação, registros em quarentena e marts prontos para BI.</p>
+    </div>
+    <div class="status">
+      <span class="blocked">Blocked</span>
+      <p>9 falhas críticas encontradas; publicar apenas os marts Ready.</p>
+    </div>
+  </header>
+
+  <div class="kpis">
+    <div class="tile"><div class="label">Pedidos brutos</div><div class="value">500</div><div class="note">registros carregados</div></div>
+    <div class="tile"><div class="label">Pedidos prontos</div><div class="value">495</div><div class="note">seguros para marts de BI</div></div>
+    <div class="tile"><div class="label">Pedidos em revisão</div><div class="value">5</div><div class="note">retidos pelas checagens</div></div>
+    <div class="tile"><div class="label">Falhas críticas</div><div class="value">9</div><div class="note">regras bloqueantes</div></div>
+    <div class="tile"><div class="label">Quality score</div><div class="value">98.2%</div><div class="note">meta de 98,0%</div></div>
+  </div>
+
+  <div class="grid">
+    <section>
+      <h2>Regras com falha</h2>
+      <table>
+        <thead><tr><th>Regra</th><th>Severidade</th><th>Registros com falha</th></tr></thead>
+        <tbody>
+        <tr>
+          <td>payment_amount_mismatch</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>2</td>
+        </tr>
+        
+
+        <tr>
+          <td>completed_order_without_payment</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>1</td>
+        </tr>
+        
+
+        <tr>
+          <td>duplicate_customer_id</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>1</td>
+        </tr>
+        
+
+        <tr>
+          <td>duplicate_order_id</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>1</td>
+        </tr>
+        
+
+        <tr>
+          <td>duplicate_order_item_id</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>1</td>
+        </tr>
+        
+
+        <tr>
+          <td>invalid_quantity</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>1</td>
+        </tr>
+        
+
+        <tr>
+          <td>missing_customer_reference</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>1</td>
+        </tr>
+        
+
+        <tr>
+          <td>missing_product_reference</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>1</td>
+        </tr>
+        
+
+        <tr>
+          <td>inactive_customer_on_completed_order</td>
+          <td><span class="badge warning">Warning</span></td>
+          <td>94</td>
+        </tr>
+        
+
+        <tr>
+          <td>cancelled_order_with_captured_payment</td>
+          <td><span class="badge warning">Warning</span></td>
+          <td>1</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Taxa de prontidão por sistema</h2>
+      
+        <div class="bar-row">
+          <div class="bar-label">web</div>
+          <div class="bar-track"><span style="width: 100.0%"></span></div>
+          <div class="bar-value">100.0%</div>
+        </div>
+        
+
+        <div class="bar-row">
+          <div class="bar-label">store</div>
+          <div class="bar-track"><span style="width: 98.8%"></span></div>
+          <div class="bar-value">98.8%</div>
+        </div>
+        
+
+        <div class="bar-row">
+          <div class="bar-label">marketplace</div>
+          <div class="bar-track"><span style="width: 98.3%"></span></div>
+          <div class="bar-value">98.3%</div>
+        </div>
+        
+      <h2 style="margin-top: 22px;">Receita pronta para BI</h2>
+      
+        <div class="revenue-row">
+          <span>marketplace</span>
+          <strong>$437,727</strong>
+        </div>
+        
+
+        <div class="revenue-row">
+          <span>web</span>
+          <strong>$393,026</strong>
+        </div>
+        
+
+        <div class="revenue-row">
+          <span>store</span>
+          <strong>$379,245</strong>
+        </div>
+        
+    </section>
+  </div>
+
+  <section>
+    <h2>Pedidos que exigem revisão</h2>
+    <table>
+      <thead><tr><th>Pedido</th><th>Origem</th><th>Status</th><th>Total</th><th>Capturado</th><th>Resumo do problema</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>O00017</td>
+          <td>marketplace</td>
+          <td>Completed</td>
+          <td>$78</td>
+          <td>$78</td>
+          <td>missing customer</td>
+        </tr>
+        
+
+        <tr>
+          <td>O00041</td>
+          <td>marketplace</td>
+          <td>Completed</td>
+          <td>$981</td>
+          <td>$981</td>
+          <td>missing product</td>
+        </tr>
+        
+
+        <tr>
+          <td>O00083</td>
+          <td>store</td>
+          <td>Completed</td>
+          <td>$5,357</td>
+          <td>$5,282</td>
+          <td>payment mismatch</td>
+        </tr>
+        
+
+        <tr>
+          <td>O00111</td>
+          <td>marketplace</td>
+          <td>Completed</td>
+          <td>$1,610</td>
+          <td>n/a</td>
+          <td>missing payment, payment mismatch</td>
+        </tr>
+        
+
+        <tr>
+          <td>O00189</td>
+          <td>store</td>
+          <td>Completed</td>
+          <td>$0</td>
+          <td>$0</td>
+          <td>invalid item quantity</td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="footnote">Gerado a partir dos outputs em DuckDB. Falhas críticas bloqueiam a atualização executiva de BI até correção ou aprovação formal pelo responsável pelos dados.</p>
+  </section>
+</main>
+</body>
+</html>

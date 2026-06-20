@@ -1,0 +1,6 @@
+order_id,order_date,customer_id,order_status,source_system,order_total,captured_payment_amount,issue_summary
+O00017,2026-02-12,C9999,Completed,marketplace,77.5,77.5,missing customer
+O00041,2026-04-29,C0030,Completed,marketplace,980.91,980.91,missing product
+O00083,2026-02-04,C0024,Completed,store,5356.53,5281.53,payment mismatch
+O00111,2026-01-03,C0069,Completed,marketplace,1610.01,,"missing payment, payment mismatch"
+O00189,2026-01-12,C0071,Completed,store,0.0,0.0,invalid item quantity

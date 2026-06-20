@@ -1,54 +1,65 @@
-# Business rules
+﻿# Business rules
 
 ## Scope
 
-The pipeline simulates an order-to-payment analytical flow. Raw files are loaded from CSV, transformed into typed staging tables and validated before being used in analytical marts.
+The pipeline validates an order-to-payment analytical flow before BI publication. It receives customers, products, orders, order items and payments as raw CSV files, then creates staging tables, quality checks and analytical marts.
 
 ## Revenue calculation
 
-Order item net amount is calculated as:
+Item revenue is calculated as:
 
 ```text
 net_item_amount = quantity * unit_price * (1 - discount_pct)
 ```
 
-## Order total
+Order revenue is the sum of item revenue by order.
 
-Order total is the sum of all item net amounts for the order.
-
-```text
-order_total = sum(net_item_amount)
-```
-
-## Valid order statuses
-
-Accepted order statuses:
-
-- `Completed`
-- `Cancelled`
-
-## Valid payment statuses
-
-Accepted payment statuses:
-
-- `Captured`
-- `Pending`
-- `Failed`
+Cancelled orders are excluded from BI-ready revenue.
 
 ## Payment matching
 
-A completed order should have a payment record. Captured payment amount should match the calculated order total within a tolerance of 0.05.
+A completed order must have a payment record.
 
-## Cancelled orders
+Captured payment amount must match the calculated order total with a tolerance of 0.05.
 
-Cancelled orders should not contribute to revenue. A cancelled order with captured payment should be flagged for review.
+Payment totals and item totals are aggregated separately before comparison. This avoids multiplying payment values when an order has more than one item.
 
-## Product and customer references
+## Data quality status
 
-Every order should have a valid customer. Every order item should have a valid product.
+Each order receives one of two statuses:
 
-## Quality severity
+- `Ready`: can feed BI marts.
+- `Review`: must be investigated before executive reporting.
 
-- Critical: duplicated IDs, missing required references, invalid dates, payment mismatch.
-- Warning: inactive customer or inactive product used in completed orders.
-- Info: pending payment or non-critical operational status.
+An order is marked as `Review` when it has missing customer, invalid date, missing payment, missing product reference, invalid item quantity or payment mismatch.
+
+## Publication gate
+
+Executive BI publication is blocked when:
+
+- at least one critical rule fails;
+- or the quality score is below 98%;
+- or revenue-impacting records are unresolved.
+
+## Severity model
+
+Critical rules block publication:
+
+- duplicate customer ID;
+- duplicate order ID;
+- duplicate order item ID;
+- invalid order date;
+- missing customer reference;
+- missing product reference;
+- invalid quantity;
+- invalid discount;
+- negative payment amount;
+- payment without order;
+- completed order without payment;
+- payment amount mismatch.
+
+Warning rules require monitoring, but may not block publication by themselves:
+
+- cancelled order with captured payment;
+- inactive customer on completed order;
+- inactive product on completed order.

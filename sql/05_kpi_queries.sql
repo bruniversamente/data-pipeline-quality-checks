@@ -73,6 +73,8 @@ SELECT
     has_customer_issue,
     has_date_issue,
     has_missing_payment_issue,
+    has_product_reference_issue,
+    has_item_quantity_issue,
     has_payment_mismatch_issue
 FROM mart_orders
 WHERE data_quality_status = 'Review'

@@ -1,0 +1,11 @@
+rule_name,severity,failed_records
+payment_amount_mismatch,Critical,2
+completed_order_without_payment,Critical,1
+duplicate_customer_id,Critical,1
+duplicate_order_id,Critical,1
+duplicate_order_item_id,Critical,1
+invalid_quantity,Critical,1
+missing_customer_reference,Critical,1
+missing_product_reference,Critical,1
+inactive_customer_on_completed_order,Warning,94
+cancelled_order_with_captured_payment,Warning,1

@@ -1,6 +1,8 @@
-# Pipeline blueprint
+﻿# Pipeline blueprint
 
-This document describes the proposed pipeline structure.
+## Purpose
+
+This project demonstrates a controlled analytical pipeline with quality gates. The design mirrors a production pattern: raw ingestion, typed staging, validation, quarantined records and BI-ready marts.
 
 ## Layer 1 - Raw
 
@@ -8,51 +10,58 @@ Goal: load source files without changing business meaning.
 
 Inputs:
 
-- customers
-- products
-- orders
-- order items
-- payments
+- `sample_customers.csv`
+- `sample_products.csv`
+- `sample_orders.csv`
+- `sample_order_items.csv`
+- `sample_payments.csv`
 
-All fields are initially loaded as strings or permissive types to avoid failing the pipeline before validation.
+Raw values are loaded permissively só invalid values can be detected instead of silently discarded.
 
 ## Layer 2 - Staging
 
-Goal: standardize field names, parse types and prepare data for validation.
+Goal: convert values into analytical types and normalize fields.
 
 Examples:
 
-- Parse dates with `TRY_CAST`.
-- Convert numeric fields to decimal values.
-- Normalize status fields.
-- Create calculated item amount.
+- parse dates with `TRY_CAST`;
+- convert quantities, prices and payment amounts to numeric fields;
+- standardize boolean fields;
+- calculate `net_item_amount`.
 
-## Layer 3 - Quality checks
+## Layer 3 - Data quality
 
-Goal: identify records that should be reviewed before BI consumption.
+Goal: identify rows that are unsafe for BI consumption.
 
 Rule groups:
 
-- Completeness
-- Uniqueness
-- Validity
-- Referential integrity
-- Business consistency
+- uniqueness;
+- validity;
+- referential integrity;
+- payment consistency;
+- operational warnings.
+
+The pipeline writes rule-level results to `dq_summary`.
 
 ## Layer 4 - Analytical marts
 
-Goal: create clean tables for BI and KPI reporting.
+Goal: create tables that BI tools can consume directly.
 
 Outputs:
 
-- `mart_orders`
-- `mart_order_items`
-- `dq_summary`
+- `mart_orders`: one row per deduplicated order with quality flags;
+- `mart_order_items`: one row per deduplicated order item with product and margin fields;
+- `dq_summary`: quality monitoring table.
 
-## Suggested production improvements
+## Layer 5 - Portfolio outputs
 
-- Add scheduling with Airflow, Prefect or GitHub Actions.
-- Persist data quality history by run date.
-- Add alerting for critical failures.
-- Add source-level quality scoring.
-- Add incremental loading.
+`scripts/build_outputs.py` produces:
+
+- CSV extracts in `outputs/`;
+- `outputs/executive_findings.md`;
+- `outputs/dashboard_data.json`;
+- `dashboard/data_pipeline_quality_dashboard.html`.
+
+## Automation
+
+The GitHub Actions workflow installs dependencies and runs `scripts/build_outputs.py` plus `scripts/run_pipeline.py`. A pull request breaks if the pipeline cannot regenerate its validation outputs.

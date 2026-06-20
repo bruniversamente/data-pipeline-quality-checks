@@ -1,0 +1,3 @@
+severity,rules_checked,total_failed_records,failed_rules
+Critical,12,9.0,8.0
+Warning,3,95.0,2.0

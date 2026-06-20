@@ -1,4 +1,4 @@
-# Data dictionary
+﻿# Data dictionary
 
 ## Raw tables
 
@@ -69,3 +69,25 @@ Item-level analytical table with product, quantity, price, cost and margin field
 ### `dq_summary`
 
 Aggregated view with data quality rule results and severity.
+
+## Exported outputs
+
+### `quality_score.csv`
+
+Run-level quality score, total orders and count of critical failures.
+
+### `failed_rules.csv`
+
+Only quality rules with one or more failing records.
+
+### `source_system_quality.csv`
+
+Order readiness by source system.
+
+### `records_requiring_review.csv`
+
+Orders marked as `Review`, including issue summary fields for investigation.
+
+### `dashboard_data.json`
+
+Compact dataset used by the static HTML dashboard.

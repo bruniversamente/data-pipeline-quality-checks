@@ -1,10 +1,102 @@
 customer_id,customer_name,customer_segment,region,created_at,is_active
-C001,Ana Martins,Consumer,South,2025-11-10,true
-C002,Bruno Silva,Small Business,Southeast,2025-12-01,true
-C003,Carla Souza,Consumer,South,2025-12-20,true
-C004,Delta LTDA,Enterprise,Southeast,2025-10-12,true
-C005,Eduardo Lima,Consumer,Northeast,2026-01-04,true
-C006,Futura ME,Small Business,South,2026-01-15,false
-C007,Gamma SA,Enterprise,Southeast,2025-09-30,true
-C008,Heloisa Costa,Consumer,South,2026-02-01,true
-C008,Heloisa Costa,Consumer,South,2026-02-01,true
+C0001,Customer 1,Enterprise,South,2025-01-13,true
+C0002,Customer 2,Consumer,South,2025-03-13,true
+C0003,Customer 3,Enterprise,Northeast,2025-10-07,true
+C0004,Customer 4,Enterprise,Southeast,2025-01-17,true
+C0005,Customer 5,Consumer,South,2025-04-30,true
+C0006,Customer 6,Enterprise,South,2026-01-02,false
+C0007,Customer 7,Consumer,Southeast,2025-10-29,true
+C0008,Customer 8,Consumer,South,2025-12-24,false
+C0009,Customer 9,Small Business,Southeast,2025-03-21,true
+C0010,Customer 10,Small Business,South,2025-02-17,false
+C0011,Customer 11,Consumer,Southeast,2025-06-26,true
+C0012,Customer 12,Consumer,Northeast,2025-08-24,true
+C0013,Customer 13,Small Business,South,2025-10-10,true
+C0014,Customer 14,Enterprise,Northeast,2025-07-05,true
+C0015,Customer 15,Enterprise,South,2025-01-24,true
+C0016,Customer 16,Small Business,South,2025-04-30,true
+C0017,Customer 17,Small Business,Southeast,2025-08-21,true
+C0018,Customer 18,Consumer,Southeast,2025-07-01,true
+C0019,Customer 19,Enterprise,Southeast,2025-12-26,true
+C0020,Customer 20,Enterprise,Northeast,2025-03-29,true
+C0021,Customer 21,Consumer,Southeast,2025-07-14,true
+C0022,Customer 22,Enterprise,Northeast,2025-10-13,true
+C0023,Customer 23,Enterprise,Southeast,2026-01-29,true
+C0024,Customer 24,Consumer,South,2026-02-17,true
+C0025,Customer 25,Small Business,Southeast,2025-02-03,true
+C0026,Customer 26,Enterprise,Northeast,2025-06-11,true
+C0027,Customer 27,Enterprise,Southeast,2025-07-22,false
+C0028,Customer 28,Consumer,Southeast,2025-03-13,true
+C0029,Customer 29,Enterprise,Northeast,2025-10-03,true
+C0030,Customer 30,Enterprise,Northeast,2025-08-08,false
+C0031,Customer 31,Small Business,South,2025-03-12,false
+C0032,Customer 32,Consumer,South,2025-02-26,true
+C0033,Customer 33,Enterprise,South,2026-02-10,false
+C0034,Customer 34,Enterprise,South,2025-07-17,false
+C0035,Customer 35,Enterprise,Southeast,2025-09-28,true
+C0036,Customer 36,Enterprise,South,2025-12-15,true
+C0037,Customer 37,Enterprise,Northeast,2026-01-20,true
+C0038,Customer 38,Enterprise,Southeast,2025-02-27,true
+C0039,Customer 39,Small Business,South,2025-08-21,true
+C0040,Customer 40,Enterprise,Northeast,2025-05-15,true
+C0041,Customer 41,Enterprise,South,2025-11-17,true
+C0042,Customer 42,Enterprise,Northeast,2025-11-08,true
+C0043,Customer 43,Consumer,Southeast,2026-01-26,true
+C0044,Customer 44,Enterprise,Northeast,2025-01-01,true
+C0045,Customer 45,Small Business,South,2025-02-27,true
+C0046,Customer 46,Small Business,South,2025-01-30,true
+C0047,Customer 47,Enterprise,South,2025-02-13,false
+C0048,Customer 48,Consumer,Northeast,2026-01-28,true
+C0049,Customer 49,Consumer,Northeast,2025-09-01,true
+C0050,Customer 50,Small Business,Northeast,2025-11-07,false
+C0051,Customer 51,Consumer,Northeast,2026-01-22,true
+C0052,Customer 52,Enterprise,Southeast,2025-07-24,true
+C0053,Customer 53,Small Business,Northeast,2025-08-20,true
+C0054,Customer 54,Consumer,South,2025-02-02,true
+C0055,Customer 55,Consumer,Northeast,2025-10-11,true
+C0056,Customer 56,Enterprise,South,2025-01-04,true
+C0057,Customer 57,Enterprise,Northeast,2025-01-31,true
+C0058,Customer 58,Consumer,South,2025-06-19,true
+C0059,Customer 59,Enterprise,South,2025-05-23,false
+C0060,Customer 60,Consumer,Northeast,2025-03-09,false
+C0061,Customer 61,Consumer,Southeast,2026-02-18,false
+C0062,Customer 62,Consumer,South,2025-02-19,false
+C0063,Customer 63,Small Business,Southeast,2025-07-30,false
+C0064,Customer 64,Enterprise,South,2025-12-11,true
+C0065,Customer 65,Consumer,Southeast,2026-01-08,true
+C0066,Customer 66,Consumer,South,2025-04-09,true
+C0067,Customer 67,Enterprise,Southeast,2025-03-13,false
+C0068,Customer 68,Consumer,Southeast,2025-08-25,true
+C0069,Customer 69,Consumer,Southeast,2026-02-18,true
+C0070,Customer 70,Consumer,Northeast,2025-10-04,true
+C0071,Customer 71,Consumer,South,2025-03-27,false
+C0072,Customer 72,Small Business,Southeast,2025-04-20,false
+C0073,Customer 73,Consumer,South,2025-07-14,true
+C0074,Customer 74,Small Business,Southeast,2026-02-06,false
+C0075,Customer 75,Small Business,Southeast,2025-12-23,false
+C0076,Customer 76,Consumer,South,2025-06-01,true
+C0077,Customer 77,Consumer,Northeast,2026-01-12,true
+C0078,Customer 78,Enterprise,Southeast,2025-01-30,true
+C0079,Customer 79,Enterprise,Southeast,2025-09-15,true
+C0080,Customer 80,Consumer,Northeast,2025-02-11,true
+C0081,Customer 81,Consumer,Northeast,2025-02-04,true
+C0082,Customer 82,Small Business,South,2025-10-19,true
+C0083,Customer 83,Enterprise,Northeast,2025-01-21,true
+C0084,Customer 84,Small Business,Northeast,2025-10-26,true
+C0085,Customer 85,Small Business,South,2025-12-09,true
+C0086,Customer 86,Consumer,Southeast,2025-07-22,true
+C0087,Customer 87,Enterprise,Northeast,2025-06-03,false
+C0088,Customer 88,Small Business,South,2025-01-05,false
+C0089,Customer 89,Enterprise,Northeast,2025-02-21,true
+C0090,Customer 90,Enterprise,South,2025-09-17,true
+C0091,Customer 91,Consumer,Southeast,2025-02-05,true
+C0092,Customer 92,Small Business,Southeast,2025-03-22,false
+C0093,Customer 93,Enterprise,Northeast,2025-06-04,true
+C0094,Customer 94,Enterprise,Northeast,2025-06-03,true
+C0095,Customer 95,Consumer,Southeast,2025-03-01,true
+C0096,Customer 96,Enterprise,Northeast,2025-03-21,true
+C0097,Customer 97,Small Business,Northeast,2025-04-18,true
+C0098,Customer 98,Consumer,Northeast,2025-11-21,true
+C0099,Customer 99,Enterprise,Southeast,2025-05-09,true
+C0100,Customer 100,Consumer,Northeast,2025-08-05,true
+C0010,Customer 10,Small Business,South,2025-02-17,false

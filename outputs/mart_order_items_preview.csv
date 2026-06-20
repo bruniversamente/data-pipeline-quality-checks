@@ -1,0 +1,51 @@
+order_item_id,order_id,order_date,customer_id,customer_segment,region,order_status,source_system,product_id,product_name,category,quantity,unit_price,unit_cost,discount_pct,net_item_amount,item_cost,gross_margin,has_product_issue,has_quantity_issue
+OI000001,O00001,2026-01-01,C0006,Enterprise,South,Completed,web,P002,Wireless Mouse,Electronics,3,79.9,35.0,0.1,215.73,105.0,110.73,False,False
+OI000002,O00001,2026-01-01,C0006,Enterprise,South,Completed,web,P005,Backpack,Accessories,3,159.9,70.0,0.1,431.73,210.0,221.73,False,False
+OI000003,O00001,2026-01-01,C0006,Enterprise,South,Completed,web,P005,Backpack,Accessories,1,159.9,70.0,0.0,159.9,70.0,89.9,False,False
+OI000004,O00002,2026-04-26,C0089,Enterprise,Northeast,Completed,marketplace,P003,Office Chair,Furniture,3,649.9,320.0,0.03,1891.21,960.0,931.21,False,False
+OI000005,O00003,2026-01-06,C0017,Small Business,Southeast,Completed,store,P003,Office Chair,Furniture,1,649.9,320.0,0.03,630.4,320.0,310.4,False,False
+OI000006,O00004,2026-02-15,C0014,Enterprise,Northeast,Cancelled,marketplace,P002,Wireless Mouse,Electronics,1,79.9,35.0,0.03,77.5,35.0,42.5,False,False
+OI000007,O00004,2026-02-15,C0014,Enterprise,Northeast,Cancelled,marketplace,P004,Desk Lamp,Home,1,129.9,55.0,0.03,126.0,55.0,71.0,False,False
+OI000008,O00005,2026-04-11,C0043,Consumer,Southeast,Cancelled,marketplace,P003,Office Chair,Furniture,1,649.9,320.0,0.0,649.9,320.0,329.9,False,False
+OI000009,O00005,2026-04-11,C0043,Consumer,Southeast,Cancelled,marketplace,P004,Desk Lamp,Home,1,129.9,55.0,0.1,116.91,55.0,61.91,False,False
+OI000010,O00006,2026-04-15,C0026,Enterprise,Northeast,Cancelled,store,P002,Wireless Mouse,Electronics,1,79.9,35.0,0.0,79.9,35.0,44.9,False,False
+OI000011,O00006,2026-04-15,C0026,Enterprise,Northeast,Cancelled,store,P006,Monitor 24,Electronics,1,899.9,520.0,0.1,809.91,520.0,289.91,False,False
+OI000012,O00006,2026-04-15,C0026,Enterprise,Northeast,Cancelled,store,P003,Office Chair,Furniture,2,649.9,320.0,0.0,1299.8,640.0,659.8,False,False
+OI000013,O00007,2026-03-24,C0045,Small Business,South,Cancelled,marketplace,P001,Notebook Basic,Electronics,1,2499.9,1800.0,0.05,2374.91,1800.0,574.91,False,False
+OI000014,O00007,2026-03-24,C0045,Small Business,South,Cancelled,marketplace,P002,Wireless Mouse,Electronics,3,79.9,35.0,0.05,227.72,105.0,122.72,False,False
+OI000015,O00007,2026-03-24,C0045,Small Business,South,Cancelled,marketplace,P001,Notebook Basic,Electronics,1,2499.9,1800.0,0.1,2249.91,1800.0,449.91,False,False
+OI000016,O00008,2026-04-11,C0094,Enterprise,Northeast,Completed,store,P004,Desk Lamp,Home,3,129.9,55.0,0.03,378.01,165.0,213.01,False,False
+OI000017,O00009,2026-04-01,C0006,Enterprise,South,Cancelled,web,P003,Office Chair,Furniture,2,649.9,320.0,0.0,1299.8,640.0,659.8,False,False
+OI000018,O00009,2026-04-01,C0006,Enterprise,South,Cancelled,web,P006,Monitor 24,Electronics,2,899.9,520.0,0.05,1709.81,1040.0,669.81,False,False
+OI000019,O00010,2026-04-03,C0016,Small Business,South,Completed,marketplace,P006,Monitor 24,Electronics,2,899.9,520.0,0.05,1709.81,1040.0,669.81,False,False
+OI000020,O00010,2026-04-03,C0016,Small Business,South,Completed,marketplace,P004,Desk Lamp,Home,3,129.9,55.0,0.05,370.22,165.0,205.22,False,False
+OI000021,O00010,2026-04-03,C0016,Small Business,South,Completed,marketplace,P005,Backpack,Accessories,1,159.9,70.0,0.03,155.1,70.0,85.1,False,False
+OI000022,O00011,2026-05-01,C0086,Consumer,Southeast,Cancelled,marketplace,P005,Backpack,Accessories,3,159.9,70.0,0.05,455.72,210.0,245.72,False,False
+OI000023,O00011,2026-05-01,C0086,Consumer,Southeast,Cancelled,marketplace,P004,Desk Lamp,Home,3,129.9,55.0,0.0,389.7,165.0,224.7,False,False
+OI000024,O00012,2026-01-27,C0037,Enterprise,Northeast,Cancelled,marketplace,P004,Desk Lamp,Home,2,129.9,55.0,0.1,233.82,110.0,123.82,False,False
+OI000025,O00012,2026-01-27,C0037,Enterprise,Northeast,Cancelled,marketplace,P006,Monitor 24,Electronics,1,899.9,520.0,0.1,809.91,520.0,289.91,False,False
+OI000026,O00012,2026-01-27,C0037,Enterprise,Northeast,Cancelled,marketplace,P006,Monitor 24,Electronics,1,899.9,520.0,0.0,899.9,520.0,379.9,False,False
+OI000027,O00013,2026-03-26,C0066,Consumer,South,Completed,web,P006,Monitor 24,Electronics,2,899.9,520.0,0.03,1745.81,1040.0,705.81,False,False
+OI000028,O00013,2026-03-26,C0066,Consumer,South,Completed,web,P002,Wireless Mouse,Electronics,1,79.9,35.0,0.0,79.9,35.0,44.9,False,False
+OI000029,O00014,2026-03-02,C0032,Consumer,South,Completed,store,P006,Monitor 24,Electronics,3,899.9,520.0,0.03,2618.71,1560.0,1058.71,False,False
+OI000030,O00014,2026-03-02,C0032,Consumer,South,Completed,store,P006,Monitor 24,Electronics,3,899.9,520.0,0.1,2429.73,1560.0,869.73,False,False
+OI000031,O00014,2026-03-02,C0032,Consumer,South,Completed,store,P004,Desk Lamp,Home,2,129.9,55.0,0.03,252.01,110.0,142.01,False,False
+OI000032,O00014,2026-03-02,C0032,Consumer,South,Completed,store,P002,Wireless Mouse,Electronics,3,79.9,35.0,0.0,239.7,105.0,134.7,False,False
+OI000033,O00015,2026-02-24,C0100,Consumer,Northeast,Completed,web,P001,Notebook Basic,Electronics,3,2499.9,1800.0,0.03,7274.71,5400.0,1874.71,False,False
+OI000034,O00015,2026-02-24,C0100,Consumer,Northeast,Completed,web,P001,Notebook Basic,Electronics,2,2499.9,1800.0,0.03,4849.81,3600.0,1249.81,False,False
+OI000035,O00015,2026-02-24,C0100,Consumer,Northeast,Completed,web,P004,Desk Lamp,Home,3,129.9,55.0,0.05,370.22,165.0,205.22,False,False
+OI000036,O00015,2026-02-24,C0100,Consumer,Northeast,Completed,web,P004,Desk Lamp,Home,3,129.9,55.0,0.1,350.73,165.0,185.73,False,False
+OI000037,O00016,2026-04-25,C0058,Consumer,South,Completed,marketplace,P004,Desk Lamp,Home,2,129.9,55.0,0.03,252.01,110.0,142.01,False,False
+OI000038,O00016,2026-04-25,C0058,Consumer,South,Completed,marketplace,P006,Monitor 24,Electronics,2,899.9,520.0,0.1,1619.82,1040.0,579.82,False,False
+OI000039,O00016,2026-04-25,C0058,Consumer,South,Completed,marketplace,P006,Monitor 24,Electronics,1,899.9,520.0,0.05,854.91,520.0,334.91,False,False
+OI000040,O00016,2026-04-25,C0058,Consumer,South,Completed,marketplace,P004,Desk Lamp,Home,1,129.9,55.0,0.05,123.41,55.0,68.41,False,False
+OI000041,O00017,2026-02-12,C9999,,,Completed,marketplace,P002,Wireless Mouse,Electronics,1,79.9,35.0,0.03,77.5,35.0,42.5,False,False
+OI000042,O00018,2026-01-20,C0089,Enterprise,Northeast,Completed,web,P004,Desk Lamp,Home,2,129.9,55.0,0.1,233.82,110.0,123.82,False,False
+OI000043,O00018,2026-01-20,C0089,Enterprise,Northeast,Completed,web,P004,Desk Lamp,Home,1,129.9,55.0,0.03,126.0,55.0,71.0,False,False
+OI000044,O00018,2026-01-20,C0089,Enterprise,Northeast,Completed,web,P004,Desk Lamp,Home,2,129.9,55.0,0.0,259.8,110.0,149.8,False,False
+OI000045,O00018,2026-01-20,C0089,Enterprise,Northeast,Completed,web,P005,Backpack,Accessories,2,159.9,70.0,0.1,287.82,140.0,147.82,False,False
+OI000046,O00019,2026-02-08,C0046,Small Business,South,Cancelled,store,P004,Desk Lamp,Home,1,129.9,55.0,0.05,123.41,55.0,68.41,False,False
+OI000047,O00019,2026-02-08,C0046,Small Business,South,Cancelled,store,P004,Desk Lamp,Home,2,129.9,55.0,0.0,259.8,110.0,149.8,False,False
+OI000048,O00020,2026-03-27,C0044,Enterprise,Northeast,Cancelled,marketplace,P004,Desk Lamp,Home,1,129.9,55.0,0.0,129.9,55.0,74.9,False,False
+OI000049,O00020,2026-03-27,C0044,Enterprise,Northeast,Cancelled,marketplace,P004,Desk Lamp,Home,3,129.9,55.0,0.0,389.7,165.0,224.7,False,False
+OI000050,O00021,2026-02-24,C0083,Enterprise,Northeast,Completed,store,P001,Notebook Basic,Electronics,2,2499.9,1800.0,0.1,4499.82,3600.0,899.82,False,False

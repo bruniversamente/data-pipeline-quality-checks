@@ -22,5 +22,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run pipeline
+      - name: Build portfolio outputs
+        run: python scripts/build_outputs.py
+
+      - name: Run SQL pipeline checks
         run: python scripts/run_pipeline.py

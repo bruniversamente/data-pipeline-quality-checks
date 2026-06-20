@@ -1,8 +1,7 @@
 product_id,product_name,category,unit_cost,list_price,is_active
-P001,Notebook Basic,Electronics,1800.00,2499.90,true
-P002,Wireless Mouse,Electronics,35.00,79.90,true
-P003,Office Chair,Furniture,320.00,649.90,true
-P004,Desk Lamp,Home,55.00,129.90,true
-P005,Backpack,Accessories,70.00,159.90,true
-P006,Monitor 24,Electronics,520.00,899.90,true
-P007,Standing Desk,Furniture,950.00,1699.90,false
+P001,Notebook Basic,Electronics,1800.0,2499.9,true
+P002,Wireless Mouse,Electronics,35.0,79.9,true
+P003,Office Chair,Furniture,320.0,649.9,true
+P004,Desk Lamp,Home,55.0,129.9,true
+P005,Backpack,Accessories,70.0,159.9,true
+P006,Monitor 24,Electronics,520.0,899.9,true

@@ -48,6 +48,16 @@ payment_summary AS (
         COUNT(*) AS payment_records
     FROM stg_payments
     GROUP BY order_id
+),
+item_quality AS (
+    SELECT
+        items.order_id,
+        BOOL_OR(products.product_id IS NULL) AS has_product_reference_issue,
+        BOOL_OR(items.quantity IS NULL OR items.quantity <= 0) AS has_item_quantity_issue
+    FROM stg_order_items_unique AS items
+    LEFT JOIN stg_products AS products
+        ON items.product_id = products.product_id
+    GROUP BY items.order_id
 )
 SELECT
     orders.order_id,
@@ -65,6 +75,8 @@ SELECT
     CASE WHEN customers.customer_id IS NULL THEN TRUE ELSE FALSE END AS has_customer_issue,
     CASE WHEN orders.order_date IS NULL THEN TRUE ELSE FALSE END AS has_date_issue,
     CASE WHEN payments.order_id IS NULL THEN TRUE ELSE FALSE END AS has_missing_payment_issue,
+    COALESCE(item_quality.has_product_reference_issue, FALSE) AS has_product_reference_issue,
+    COALESCE(item_quality.has_item_quantity_issue, FALSE) AS has_item_quantity_issue,
     CASE
         WHEN orders.order_status = 'Completed'
          AND ABS(COALESCE(payments.captured_payment_amount, 0) - COALESCE(totals.order_total, 0)) > 0.05
@@ -74,6 +86,8 @@ SELECT
         WHEN customers.customer_id IS NULL
           OR orders.order_date IS NULL
           OR payments.order_id IS NULL
+          OR COALESCE(item_quality.has_product_reference_issue, FALSE)
+          OR COALESCE(item_quality.has_item_quantity_issue, FALSE)
           OR (
               orders.order_status = 'Completed'
               AND ABS(COALESCE(payments.captured_payment_amount, 0) - COALESCE(totals.order_total, 0)) > 0.05
@@ -87,7 +101,9 @@ LEFT JOIN stg_customers_unique AS customers
 LEFT JOIN order_totals AS totals
     ON orders.order_id = totals.order_id
 LEFT JOIN payment_summary AS payments
-    ON orders.order_id = payments.order_id;
+    ON orders.order_id = payments.order_id
+LEFT JOIN item_quality
+    ON orders.order_id = item_quality.order_id;
 
 SELECT 'mart_orders' AS table_name, COUNT(*) AS row_count FROM mart_orders
 UNION ALL

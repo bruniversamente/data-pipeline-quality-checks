@@ -1,4 +1,9 @@
-"""Generate synthetic raw data for the pipeline project."""
+"""Generate synthetic raw data for the pipeline project.
+
+The generated files intentionally include a small, controlled set of data
+quality issues so the pipeline can demonstrate validation, quarantine and
+publication gating.
+"""
 
 import csv
 import random
@@ -7,7 +12,7 @@ from pathlib import Path
 
 random.seed(42)
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "data" / "generated" / "raw"
+OUT = ROOT / "data" / "raw"
 OUT.mkdir(parents=True, exist_ok=True)
 
 REGIONS = ["South", "Southeast", "Northeast"]
@@ -23,6 +28,15 @@ PRODUCTS = [
     ("P005", "Backpack", "Accessories", 70.00, 159.90, "true"),
     ("P006", "Monitor 24", "Electronics", 520.00, 899.90, "true"),
 ]
+
+ANOMALOUS_ORDER_IDS = {
+    "missing_customer": "O00017",
+    "missing_product": "O00041",
+    "payment_mismatch": "O00083",
+    "missing_payment": "O00111",
+    "cancelled_captured": "O00147",
+    "invalid_quantity": "O00189",
+}
 
 
 def write_csv(path, rows):
@@ -66,10 +80,22 @@ def main():
         customer = random.choice(customers)
         order_date = start + timedelta(days=random.randint(0, 120))
         status = random.choice(["Completed", "Completed", "Completed", "Cancelled"])
+
+        if order_id in {
+            ANOMALOUS_ORDER_IDS["missing_customer"],
+            ANOMALOUS_ORDER_IDS["missing_product"],
+            ANOMALOUS_ORDER_IDS["payment_mismatch"],
+            ANOMALOUS_ORDER_IDS["missing_payment"],
+            ANOMALOUS_ORDER_IDS["invalid_quantity"],
+        }:
+            status = "Completed"
+        if order_id == ANOMALOUS_ORDER_IDS["cancelled_captured"]:
+            status = "Cancelled"
+
         orders.append({
             "order_id": order_id,
             "order_date": order_date.isoformat(),
-            "customer_id": customer["customer_id"],
+            "customer_id": "C9999" if order_id == ANOMALOUS_ORDER_IDS["missing_customer"] else customer["customer_id"],
             "order_status": status,
             "source_system": random.choice(SOURCES),
         })
@@ -79,31 +105,46 @@ def main():
             product = random.choice(PRODUCTS)
             quantity = random.randint(1, 3)
             discount = random.choice([0, 0.03, 0.05, 0.10])
+            product_id = "P999" if order_id == ANOMALOUS_ORDER_IDS["missing_product"] and item_idx == 0 else product[0]
+            if order_id == ANOMALOUS_ORDER_IDS["invalid_quantity"] and item_idx == 0:
+                quantity = 0
             amount = quantity * product[4] * (1 - discount)
             order_total += amount
             items.append({
                 "order_item_id": f"OI{len(items) + 1:06d}",
                 "order_id": order_id,
-                "product_id": product[0],
+                "product_id": product_id,
                 "quantity": quantity,
                 "unit_price": product[4],
                 "discount_pct": discount,
             })
+
+        if order_id == ANOMALOUS_ORDER_IDS["missing_payment"]:
+            continue
+
+        payment_amount = order_total
+        if order_id == ANOMALOUS_ORDER_IDS["payment_mismatch"]:
+            payment_amount = order_total - 75
 
         payments.append({
             "payment_id": f"PAY{idx:06d}",
             "order_id": order_id,
             "payment_date": order_date.isoformat(),
             "payment_method": random.choice(PAYMENTS),
-            "payment_status": "Captured" if status == "Completed" else "Pending",
-            "payment_amount": round(order_total, 2),
+            "payment_status": "Captured" if status == "Completed" or order_id == ANOMALOUS_ORDER_IDS["cancelled_captured"] else "Pending",
+            "payment_amount": round(payment_amount, 2),
         })
 
-    write_csv(OUT / "customers.csv", customers)
-    write_csv(OUT / "products.csv", products)
-    write_csv(OUT / "orders.csv", orders)
-    write_csv(OUT / "order_items.csv", items)
-    write_csv(OUT / "payments.csv", payments)
+    # Duplicate rows are deterministic and small enough to be easy to inspect.
+    customers.append(customers[9].copy())
+    orders.append(orders[24].copy())
+    items.append(items[29].copy())
+
+    write_csv(OUT / "sample_customers.csv", customers)
+    write_csv(OUT / "sample_products.csv", products)
+    write_csv(OUT / "sample_orders.csv", orders)
+    write_csv(OUT / "sample_order_items.csv", items)
+    write_csv(OUT / "sample_payments.csv", payments)
     print(f"Generated files in {OUT}")
     print(f"Customers: {len(customers)} | Orders: {len(orders)} | Items: {len(items)} | Payments: {len(payments)}")
 

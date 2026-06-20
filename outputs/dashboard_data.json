@@ -1,0 +1,186 @@
+{
+  "publication_status": "Blocked",
+  "publication_reason": "9 falhas cr\u00edticas encontradas; publicar apenas os marts Ready.",
+  "kpis": {
+    "raw_orders": 500,
+    "ready_orders": 495,
+    "review_orders": 5,
+    "critical_failures": 9,
+    "warning_failures": 95,
+    "quality_score": 0.982
+  },
+  "failed_rules": [
+    {
+      "rule_name": "payment_amount_mismatch",
+      "severity": "Critical",
+      "failed_records": 2
+    },
+    {
+      "rule_name": "completed_order_without_payment",
+      "severity": "Critical",
+      "failed_records": 1
+    },
+    {
+      "rule_name": "duplicate_customer_id",
+      "severity": "Critical",
+      "failed_records": 1
+    },
+    {
+      "rule_name": "duplicate_order_id",
+      "severity": "Critical",
+      "failed_records": 1
+    },
+    {
+      "rule_name": "duplicate_order_item_id",
+      "severity": "Critical",
+      "failed_records": 1
+    },
+    {
+      "rule_name": "invalid_quantity",
+      "severity": "Critical",
+      "failed_records": 1
+    },
+    {
+      "rule_name": "missing_customer_reference",
+      "severity": "Critical",
+      "failed_records": 1
+    },
+    {
+      "rule_name": "missing_product_reference",
+      "severity": "Critical",
+      "failed_records": 1
+    },
+    {
+      "rule_name": "inactive_customer_on_completed_order",
+      "severity": "Warning",
+      "failed_records": 94
+    },
+    {
+      "rule_name": "cancelled_order_with_captured_payment",
+      "severity": "Warning",
+      "failed_records": 1
+    }
+  ],
+  "source_quality": [
+    {
+      "source_system": "web",
+      "orders": 158,
+      "ready_orders": 158.0,
+      "ready_rate": 1.0
+    },
+    {
+      "source_system": "store",
+      "orders": 161,
+      "ready_orders": 159.0,
+      "ready_rate": 0.9876
+    },
+    {
+      "source_system": "marketplace",
+      "orders": 181,
+      "ready_orders": 178.0,
+      "ready_rate": 0.9834
+    }
+  ],
+  "revenue_ready": [
+    {
+      "source_system": "marketplace",
+      "completed_orders": 123,
+      "order_total": 437727.43,
+      "captured_payment_amount": 437727.25
+    },
+    {
+      "source_system": "web",
+      "completed_orders": 119,
+      "order_total": 393026.16,
+      "captured_payment_amount": 393026.0
+    },
+    {
+      "source_system": "store",
+      "completed_orders": 117,
+      "order_total": 379244.67,
+      "captured_payment_amount": 379244.43
+    }
+  ],
+  "review_records": [
+    {
+      "order_id": "O00017",
+      "order_date": "2026-02-12 00:00:00",
+      "customer_id": "C9999",
+      "order_status": "Completed",
+      "source_system": "marketplace",
+      "order_total": 77.5,
+      "captured_payment_amount": 77.5,
+      "issue_summary": "missing customer"
+    },
+    {
+      "order_id": "O00041",
+      "order_date": "2026-04-29 00:00:00",
+      "customer_id": "C0030",
+      "order_status": "Completed",
+      "source_system": "marketplace",
+      "order_total": 980.91,
+      "captured_payment_amount": 980.91,
+      "issue_summary": "missing product"
+    },
+    {
+      "order_id": "O00083",
+      "order_date": "2026-02-04 00:00:00",
+      "customer_id": "C0024",
+      "order_status": "Completed",
+      "source_system": "store",
+      "order_total": 5356.53,
+      "captured_payment_amount": 5281.53,
+      "issue_summary": "payment mismatch"
+    },
+    {
+      "order_id": "O00111",
+      "order_date": "2026-01-03 00:00:00",
+      "customer_id": "C0069",
+      "order_status": "Completed",
+      "source_system": "marketplace",
+      "order_total": 1610.01,
+      "captured_payment_amount": NaN,
+      "issue_summary": "missing payment, payment mismatch"
+    },
+    {
+      "order_id": "O00189",
+      "order_date": "2026-01-12 00:00:00",
+      "customer_id": "C0071",
+      "order_status": "Completed",
+      "source_system": "store",
+      "order_total": 0.0,
+      "captured_payment_amount": 0.0,
+      "issue_summary": "invalid item quantity"
+    }
+  ],
+  "category_metrics": [
+    {
+      "category": "Electronics",
+      "orders": 270,
+      "units": 871.0,
+      "net_revenue": 930251.37,
+      "gross_margin": 271801.37
+    },
+    {
+      "category": "Furniture",
+      "orders": 142,
+      "units": 320.0,
+      "net_revenue": 198336.48,
+      "gross_margin": 95936.48
+    },
+    {
+      "category": "Accessories",
+      "orders": 148,
+      "units": 350.0,
+      "net_revenue": 53465.88,
+      "gross_margin": 28965.88
+    },
+    {
+      "category": "Home",
+      "orders": 128,
+      "units": 289.0,
+      "net_revenue": 35843.48,
+      "gross_margin": 19948.48
+    }
+  ]
+}

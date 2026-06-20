@@ -72,17 +72,30 @@ WHERE orders.order_status = 'Completed'
 UNION ALL
 SELECT 'payment_amount_mismatch', 'Critical', COUNT(*)
 FROM (
+    WITH order_totals AS (
+        SELECT
+            order_id,
+            ROUND(SUM(net_item_amount), 2) AS order_total
+        FROM stg_order_items_unique
+        GROUP BY order_id
+    ),
+    payment_totals AS (
+        SELECT
+            order_id,
+            ROUND(SUM(CASE WHEN payment_status = 'Captured' THEN payment_amount ELSE 0 END), 2) AS captured_payment_amount
+        FROM stg_payments
+        GROUP BY order_id
+    )
     SELECT
         orders.order_id,
-        ROUND(SUM(items.net_item_amount), 2) AS order_total,
-        ROUND(SUM(CASE WHEN payments.payment_status = 'Captured' THEN payments.payment_amount ELSE 0 END), 2) AS captured_payment_amount
+        order_totals.order_total,
+        payment_totals.captured_payment_amount
     FROM stg_orders_unique AS orders
-    LEFT JOIN stg_order_items_unique AS items
-        ON orders.order_id = items.order_id
-    LEFT JOIN stg_payments AS payments
-        ON orders.order_id = payments.order_id
+    LEFT JOIN order_totals
+        ON orders.order_id = order_totals.order_id
+    LEFT JOIN payment_totals
+        ON orders.order_id = payment_totals.order_id
     WHERE orders.order_status = 'Completed'
-    GROUP BY orders.order_id
 ) AS totals
 WHERE ABS(COALESCE(captured_payment_amount, 0) - COALESCE(order_total, 0)) > 0.05
 UNION ALL

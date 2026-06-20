@@ -26,7 +26,11 @@ def run_sql_file(connection, sql_file: Path) -> None:
 
     for statement in statements:
         result = connection.execute(statement)
-        if statement.lower().startswith("select"):
+        first_sql_line = next(
+            (line.strip().lower() for line in statement.splitlines() if line.strip() and not line.strip().startswith("--")),
+            "",
+        )
+        if first_sql_line.startswith("select") or first_sql_line.startswith("with"):
             print(result.fetchdf())
 
 

@@ -1,0 +1,51 @@
+order_id,order_date,customer_id,customer_segment,region,order_status,source_system,item_count,order_total,captured_payment_amount,latest_payment_status,payment_records,has_customer_issue,has_date_issue,has_missing_payment_issue,has_product_reference_issue,has_item_quantity_issue,has_payment_mismatch_issue,data_quality_status
+O00001,2026-01-01,C0006,Enterprise,South,Completed,web,3,807.36,807.36,Captured,1,False,False,False,False,False,False,Ready
+O00002,2026-04-26,C0089,Enterprise,Northeast,Completed,marketplace,1,1891.21,1891.21,Captured,1,False,False,False,False,False,False,Ready
+O00003,2026-01-06,C0017,Small Business,Southeast,Completed,store,1,630.4,630.4,Captured,1,False,False,False,False,False,False,Ready
+O00004,2026-02-15,C0014,Enterprise,Northeast,Cancelled,marketplace,2,203.5,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00005,2026-04-11,C0043,Consumer,Southeast,Cancelled,marketplace,2,766.81,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00006,2026-04-15,C0026,Enterprise,Northeast,Cancelled,store,3,2189.61,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00007,2026-03-24,C0045,Small Business,South,Cancelled,marketplace,3,4852.54,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00008,2026-04-11,C0094,Enterprise,Northeast,Completed,store,1,378.01,378.01,Captured,1,False,False,False,False,False,False,Ready
+O00009,2026-04-01,C0006,Enterprise,South,Cancelled,web,2,3009.61,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00010,2026-04-03,C0016,Small Business,South,Completed,marketplace,3,2235.13,2235.13,Captured,1,False,False,False,False,False,False,Ready
+O00011,2026-05-01,C0086,Consumer,Southeast,Cancelled,marketplace,2,845.42,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00012,2026-01-27,C0037,Enterprise,Northeast,Cancelled,marketplace,3,1943.63,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00013,2026-03-26,C0066,Consumer,South,Completed,web,2,1825.71,1825.71,Captured,1,False,False,False,False,False,False,Ready
+O00014,2026-03-02,C0032,Consumer,South,Completed,store,4,5540.15,5540.15,Captured,1,False,False,False,False,False,False,Ready
+O00015,2026-02-24,C0100,Consumer,Northeast,Completed,web,4,12845.47,12845.46,Captured,1,False,False,False,False,False,False,Ready
+O00016,2026-04-25,C0058,Consumer,South,Completed,marketplace,4,2850.15,2850.14,Captured,1,False,False,False,False,False,False,Ready
+O00017,2026-02-12,C9999,,,Completed,marketplace,1,77.5,77.5,Captured,1,True,False,False,False,False,False,Review
+O00018,2026-01-20,C0089,Enterprise,Northeast,Completed,web,4,907.44,907.44,Captured,1,False,False,False,False,False,False,Ready
+O00019,2026-02-08,C0046,Small Business,South,Cancelled,store,2,383.21,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00020,2026-03-27,C0044,Enterprise,Northeast,Cancelled,marketplace,2,519.6,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00021,2026-02-24,C0083,Enterprise,Northeast,Completed,store,2,5084.73,5084.73,Captured,1,False,False,False,False,False,False,Ready
+O00022,2026-04-08,C0044,Enterprise,Northeast,Cancelled,store,4,9634.41,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00023,2026-04-18,C0026,Enterprise,Northeast,Completed,marketplace,2,944.81,944.81,Captured,1,False,False,False,False,False,False,Ready
+O00024,2026-02-02,C0090,Enterprise,South,Completed,web,1,159.8,159.8,Captured,1,False,False,False,False,False,False,Ready
+O00025,2026-04-29,C0004,Enterprise,Southeast,Completed,marketplace,4,17477.14,17477.13,Captured,1,False,False,False,False,False,False,Ready
+O00026,2026-02-14,C0006,Enterprise,South,Cancelled,marketplace,3,16374.35,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00027,2026-04-01,C0059,Enterprise,South,Completed,store,2,2996.44,2996.44,Captured,1,False,False,False,False,False,False,Ready
+O00028,2026-04-16,C0056,Enterprise,South,Completed,store,2,4643.64,4643.64,Captured,1,False,False,False,False,False,False,Ready
+O00029,2026-03-05,C0004,Enterprise,Southeast,Completed,web,4,3791.63,3791.63,Captured,1,False,False,False,False,False,False,Ready
+O00030,2026-04-08,C0072,Small Business,Southeast,Completed,marketplace,4,3999.45,3999.44,Captured,1,False,False,False,False,False,False,Ready
+O00031,2026-02-17,C0075,Small Business,Southeast,Cancelled,marketplace,3,3359.76,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00032,2026-04-03,C0016,Small Business,South,Completed,store,1,2618.71,2618.71,Captured,1,False,False,False,False,False,False,Ready
+O00033,2026-04-05,C0028,Consumer,Southeast,Cancelled,store,3,3160.32,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00034,2026-01-07,C0006,Enterprise,South,Completed,marketplace,2,8924.52,8924.51,Captured,1,False,False,False,False,False,False,Ready
+O00035,2026-02-26,C0062,Consumer,South,Completed,web,1,1299.8,1299.8,Captured,1,False,False,False,False,False,False,Ready
+O00036,2026-03-04,C0052,Enterprise,Southeast,Completed,marketplace,1,75.91,75.91,Captured,1,False,False,False,False,False,False,Ready
+O00037,2026-01-16,C0032,Consumer,South,Cancelled,marketplace,2,521.64,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00038,2026-03-21,C0073,Consumer,South,Completed,marketplace,1,232.51,232.51,Captured,1,False,False,False,False,False,False,Ready
+O00039,2026-01-11,C0085,Small Business,South,Completed,web,2,4654.92,4654.92,Captured,1,False,False,False,False,False,False,Ready
+O00040,2026-03-02,C0077,Consumer,Northeast,Completed,web,2,3652.01,3652.01,Captured,1,False,False,False,False,False,False,Ready
+O00041,2026-04-29,C0030,Enterprise,Northeast,Completed,marketplace,2,980.91,980.91,Captured,1,False,False,False,True,False,False,Review
+O00042,2026-01-08,C0010,Small Business,South,Completed,store,3,3491.46,3491.46,Captured,1,False,False,False,False,False,False,Ready
+O00043,2026-03-18,C0011,Consumer,Southeast,Completed,store,3,4619.5,4619.5,Captured,1,False,False,False,False,False,False,Ready
+O00044,2026-03-08,C0061,Consumer,Southeast,Cancelled,store,2,5037.63,0.0,Pending,1,False,False,False,False,False,False,Ready
+O00045,2026-02-11,C0043,Consumer,Southeast,Completed,web,3,2249.37,2249.37,Captured,1,False,False,False,False,False,False,Ready
+O00046,2026-02-02,C0041,Enterprise,South,Completed,web,4,2357.53,2357.53,Captured,1,False,False,False,False,False,False,Ready
+O00047,2026-03-12,C0035,Enterprise,Southeast,Completed,store,4,10073.33,10073.32,Captured,1,False,False,False,False,False,False,Ready
+O00048,2026-04-18,C0029,Enterprise,Northeast,Completed,store,1,809.91,809.91,Captured,1,False,False,False,False,False,False,Ready
+O00049,2026-03-07,C0038,Enterprise,Southeast,Completed,store,4,4993.15,4993.15,Captured,1,False,False,False,False,False,False,Ready
+O00050,2026-02-04,C0065,Consumer,Southeast,Completed,store,3,1745.37,1745.37,Captured,1,False,False,False,False,False,False,Ready

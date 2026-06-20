@@ -1,6 +1,6 @@
-# Data contract
+﻿# Data contract
 
-This document defines minimum expectations for the raw input files.
+This document defines minimum expectations for the raw input files. Any critical contract failure blocks executive BI publication until correction or explicit approval by a data owner.
 
 ## `sample_customers.csv`
 
@@ -89,3 +89,11 @@ Rules:
 - `order_id` must exist in orders.
 - `payment_date` must be a valid date.
 - `payment_amount` must be greater than or equal to zero.
+
+## Publication contract
+
+The pipeline can publish BI-ready outputs only when:
+
+- critical rule failures equal zero;
+- quality score is at least 98%;
+- revenue-impacting records are not left in unresolved review status.
